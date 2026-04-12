@@ -1,0 +1,240 @@
+/* يدعم الوضع الفاتح و الداكن */
+
+
+.news-page {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Cairo", sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+
+.news-header {
+  text-align: center;
+  padding: 10rem 1rem 3rem;
+  background: var(--section-bg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-icon {
+  color: var(--accent-color);
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.4));
+}
+
+.news-header h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+.news-header p {
+  color: var(--text-color-secondary);
+  max-width: 700px;
+  margin: 1rem auto 0;
+}
+
+/*  بطاقات الأخبار  */
+.news-list {
+  padding: 4rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.news-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 3px 10px var(--shadow-color);
+  transition: all 0.3s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.2);
+}
+
+/*  ميتاداتا الخبر  */
+.news-meta h2 {
+  font-size: 1.3rem;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.news-meta .summary {
+  color: var(--text-color-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.meta-info {
+  font-size: 0.85rem;
+  color: var(--text-color-secondary);
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+/*   (الفئة + مستوى الخطورة)  */
+.news-tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: var(--section-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  padding: 0.3rem 0.7rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.sev-green { color: #22c55e; border-color: #22c55e; }
+.sev-yellow { color: #eab308; border-color: #eab308; }
+.sev-orange { color: #fb923c; border-color: #fb923c; }
+.sev-red { color: #ef4444; border-color: #ef4444; }
+
+/*  محتوى الخبر  */
+.news-content {
+  color: var(--text-color-secondary);
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  line-height: 1.6;
+}
+
+/* التوصيات الأمنية  */
+.recommendations {
+  background: var(--section-bg);
+  border-radius: 0.8rem;
+  padding: 1rem 1.5rem;
+  margin-top: 1.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.recommendations h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.recommendations ul {
+  list-style: none;
+  padding: 0;
+}
+
+.recommendations li {
+  color: var(--text-color-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0.3rem 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.actions .btn {
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.actions .btn:hover {
+  transform: translateY(-2px);
+}
+
+.actions .btn-outline {
+  background: transparent;
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+}
+
+.actions .btn-outline:hover {
+  background: var(--accent-color);
+  color: #fff;
+}
+
+.alert-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  text-align: center;
+  background: var(--section-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 3rem 1.5rem;
+  margin: 4rem auto;
+  max-width: 800px;
+  box-shadow: 0 3px 12px var(--shadow-color);
+}
+
+.alert-icon {
+  color: #f87171;
+  width: 50px;
+  height: 50px;
+}
+
+.alert-box h3 {
+  color: var(--accent-color);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.alert-box p {
+  color: var(--text-color-secondary);
+  line-height: 1.7;
+  max-width: 700px;
+}
+
+.alert-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn-alert {
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 1.4rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-alert:hover {
+  background: var(--accent-color-2);
+  transform: translateY(-2px);
+}
+
+.btn-outline-red {
+  border: 2px solid #f87171;
+  color: #f87171;
+  background: transparent;
+  border-radius: 8px;
+  padding: 0.8rem 1.4rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-red:hover {
+  background: #f87171;
+  color: #fff;
+  transform: translateY(-2px);
+}

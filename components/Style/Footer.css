@@ -1,0 +1,48 @@
+/* يدعم الوضع الفاتح و الداكن */
+
+
+.site-footer {
+  text-align: center;
+  padding: 3rem 1rem;
+  font-family: "Cairo", sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.95rem;
+}
+
+/* الوضع الداكن */
+[data-theme='dark'] .site-footer {
+  background: #0f172a;
+  color: #94a3b8;
+}
+[data-theme='dark'] .site-footer a {
+  color: #38bdf8;
+}
+[data-theme='dark'] .site-footer a:hover {
+  color: #0ea5e9;
+}
+
+/* الوضع الفاتح */
+[data-theme='light'] .site-footer {
+  background: linear-gradient(180deg, #f8fbff 0%, #edf3ff 100%);
+  color: #475569;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+}
+[data-theme='light'] .site-footer a {
+  color: #2563eb;
+  font-weight: 600;
+}
+[data-theme='light'] .site-footer a:hover {
+  color: #0ea5e9;
+}
+
+.site-footer p {
+  margin: 0.5rem 0;
+}
+
+.site-footer small {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-color-secondary);
+}

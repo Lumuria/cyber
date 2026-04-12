@@ -1,0 +1,214 @@
+{
+    "home": "Home",
+    "about_nav": "About",
+
+    "about": {
+        "title": "About Cyber Security Platform",
+        "subtitle": "We are an educational platform specialized in raising awareness about cybersecurity and data protection.",
+        "mission_title": "Our Mission",
+        "mission_text": "In the digital age, protection from cyber threats has become essential. We believe education and awareness are the strongest defense.",
+        "goal_title": "Our Goal",
+        "goal_text": "We aim to make cybersecurity accessible and understandable for everyone.",
+        "vision_title": "Our Vision",
+        "vision_text": "We aspire to a secure digital society where everyone has the tools to protect themselves.",
+        "values_title": "Our Core Values",
+        "team_title": "Our Team",
+        "team_desc": "Our team consists of cybersecurity experts passionate about delivering high-quality educational content.",
+        "cta_title": "Join Our Community",
+        "cta_text": "Be part of the cybersecurity community and help spread awareness.",
+        "contact": "Contact Us",
+        "subscribe": "Subscribe"
+    },
+
+    "attacks": {
+        "title": "Cyber Attacks",
+        "subtitle": "Learn about the most famous cyber attacks and how to protect yourself",
+        "search_placeholder": "Search for attack...",
+        "all_types": "All Types",
+        "all_levels": "All Levels",
+        "reset": "Reset",
+        "results": "Showing {{count}} of {{total}} attacks",
+        "show_details": "Show Details",
+        "hide_details": "Hide Details",
+        "target": "Target",
+        "damage": "Damage",
+        "prevention": "Prevention",
+        "detection": "Detection",
+        "solutions": "Solutions",
+        "no_results": "No Results",
+        "no_results_desc": "Try changing filters"
+    },
+
+    "news": "News",
+    "posts_nav": "Community",
+    "admin_panel": "Admin",
+    "prevention": "Prevention",
+    "attacks_nav": "Attacks",
+    "tools": "Tools",
+
+    "login": "Login",
+    "signup": "Sign Up",
+    "logout": "Logout",
+
+    "dark_mode": "Dark Mode",
+    "light_mode": "Light Mode",
+
+    "footer": {
+        "made_with": "Made with care by a human (and some helpful tools).",
+        "contact": "Contact:"
+    },
+
+    "homePage": {
+        "title": "Your Complete Guide to Cybersecurity",
+        "subtitle": "Learn how to protect yourself and your organization from growing cyber threats",
+        "explore_attacks": "Explore Attacks",
+        "learn_protection": "Learn Protection",
+        "stats_title": "Cybersecurity Statistics",
+
+        "features_title": "\u200EWhat Will You Learn?",
+
+        "discover_more": "Discover More",
+        "warning_title": "\u200EDid You Know?",
+        "cta_title": "Start Your Cybersecurity Journey Today",
+        "cta_text": "Don't wait until you become a victim. Learn how to protect yourself now",
+        "cta_button": "Start Learning Now"
+    },
+
+    "postsPage": {
+        "title": "Community posts",
+        "subtitle": "Updates from our team — sign in to like posts and join the conversation.",
+        "empty": "No posts yet. An admin can add posts from the admin panel.",
+        "by": "By",
+        "like": "Like",
+        "unlike": "Unlike",
+        "comments": "Comments",
+        "placeholder": "Write a comment…",
+        "submit": "Post comment",
+        "login_to_interact": "Log in to like or comment.",
+        "no_comments": "No comments yet. Be the first to reply."
+    },
+
+    "admin_posts": {
+        "title": "Manage posts",
+        "hint": "Posts appear on the Community page for all visitors; likes and comments require a signed-in user.",
+        "add": "+ Add post",
+        "empty": "No posts yet.",
+        "delete": "Delete",
+        "modal_title": "New post",
+        "title_placeholder": "Title",
+        "body_placeholder": "Content (optional)",
+        "save": "Publish",
+        "cancel": "Cancel"
+    },
+
+    "newsPage": {
+        "title": "Cybersecurity News",
+        "subtitle": "Latest updates and developments in cybersecurity and digital threats",
+        "recommendations": "Security Recommendations",
+        "read_more": "Read More",
+        "share": "Share",
+        "alert_title": "Important Security Alert",
+        "alert_text": "Cyber threats are constantly evolving. Stay updated and apply security recommendations immediately.",
+        "subscribe": "Subscribe to Alerts",
+        "learn_more": "Learn More"
+    },
+
+    "preventionPage": {
+        "title": "Prevention & Protection",
+        "subtitle": "Learn best practices to protect yourself and your organization from cyber threats",
+        "search_placeholder": "Search for protection method...",
+        "all_categories": "All Categories",
+        "all_levels": "All Levels",
+        "reset": "Reset",
+        "results": "Showing {{count}} of {{total}} methods",
+        "importance": "Importance",
+        "difficulty": "Difficulty",
+        "tips_title": "Implementation Tips",
+        "apply": "Apply This Method",
+        "no_results": "No Results",
+        "no_results_desc": "Try changing filters",
+        "general_title": "General Cybersecurity Tips",
+        "tip1_title": "Stay Alert",
+        "tip1_desc": "Prevention is better than falling into risk.",
+        "tip2_title": "Update Systems",
+        "tip2_desc": "Security updates are your first defense.",
+        "tip3_title": "Keep Learning",
+        "tip3_desc": "Knowledge is your best protection."
+    },
+
+    "toolsPage": {
+        "title": "Interactive Tools",
+        "subtitle": "Use our tools to check your security level and improve it",
+        "password_checker": "Password Strength Checker",
+        "password_placeholder": "Enter password to check...",
+        "check_password": "Check Password",
+        "url_checker": "Phishing URL Checker",
+        "url_placeholder": "Enter URL to check... (e.g. https://example.com)",
+        "check_url": "Check URL",
+        "risk_level": "Risk Level",
+        "tips_title": "Quick Security Tips",
+        "tip1_title": "Strong Passwords",
+        "tip1_desc": "Use different and complex passwords for each account.",
+        "tip2_title": "Verify Links",
+        "tip2_desc": "Avoid suspicious links and verify website addresses.",
+        "tip3_title": "Stay Alert",
+        "tip3_desc": "Monitor suspicious activities regularly.",
+        "warning_title": "Important Warning",
+        "warning_text": "These tools are for educational purposes only. Do not enter real passwords or sensitive data."
+    },
+
+    "login": {
+        "title": "Login",
+        "subtitle": "Welcome back 👋",
+        "email": "Email",
+        "email_or_user": "Email or admin username",
+        "password": "Password",
+        "button": "Login",
+        "no_account": "Don't have an account?",
+        "signup": "Sign up",
+        "forgot": "Forgot password?",
+        "errors": {
+            "required": "Please enter email and password",
+            "invalid_email": "Please enter a valid email",
+            "password_length": "Password must be at least 6 characters",
+            "invalid_credentials": "Wrong username or password for this account."
+        }
+    },
+
+    "signup": {
+        "title": "Create Account",
+        "subtitle": "Welcome to ThreatIQ 👋",
+        "email": "Email",
+        "password": "Password",
+        "confirm_password": "Confirm Password",
+        "button": "Sign Up",
+        "send_code": "Send verification code",
+        "sending": "Sending…",
+        "have_account": "Already have an account?",
+        "login": "Login",
+        "verify": {
+            "title": "Verify your email",
+            "sent_to": "We sent a 6-digit code to",
+            "code_placeholder": "Enter 6-digit code",
+            "confirm": "Verify & create account",
+            "resend": "Resend code",
+            "edit_email": "Change email",
+            "note_form": "We will email you a code to confirm this address before your account is created.",
+            "note_inbox": "Check your inbox (and spam folder). The code expires in 15 minutes.",
+            "demo_code_label": "Demo / local testing",
+            "demo_code_hint": "With a real server, this code would only appear in the email. Configure VITE_VERIFICATION_API_URL to send mail from your backend.",
+            "code_invalid": "Enter the full 6-digit code.",
+            "code_wrong": "That code is not correct. Try again or resend.",
+            "expired": "This code has expired. Go back and request a new one.",
+            "session_expired": "Verification session expired. Please start again.",
+            "send_failed": "Could not send the verification email. Check your connection or server configuration."
+        },
+        "errors": {
+            "required": "Please fill all fields",
+            "invalid_email": "Please enter a valid email",
+            "password_length": "Password must be at least 6 characters",
+            "password_match": "Passwords do not match",
+            "reserved": "This email or username is reserved for the administrator account."
+        }
+    }
+}
