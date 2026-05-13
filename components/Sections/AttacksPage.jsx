@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import {
   Search,
-  Filter,
   Calendar,
   AlertTriangle,
   Shield,
@@ -9,12 +8,13 @@ import {
   ChevronDown,
   ChevronUp,
 } from 'lucide-react';
-import cyberAttacksData from '../../data/attacksData';
 import '../Style/Attacks.css';
 import { useTranslation } from "react-i18next";
+import { useContent } from '../Context/ContentContext';
 
 const AttacksPage = () => {
   const { t, i18n } = useTranslation();
+  const { attacks } = useContent();
 
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedType, setSelectedType] = useState('all');
@@ -24,17 +24,20 @@ const AttacksPage = () => {
   const attackTypes = ['all'];
   const severityLevels = ['all'];
 
-  const filteredAttacks = cyberAttacksData.filter((attack) => {
+  const filteredAttacks = attacks.filter((attack) => {
+    const titleText = attack?.title?.[i18n.language] || '';
+    const descText = attack?.description?.[i18n.language] || '';
+    const nameText = attack?.name || '';
     const matchesSearch =
-      attack.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      attack.title[i18n.language].toLowerCase().includes(searchTerm.toLowerCase()) ||
-      attack.description[i18n.language].toLowerCase().includes(searchTerm.toLowerCase());
+      nameText.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      titleText.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      descText.toLowerCase().includes(searchTerm.toLowerCase());
 
     const matchesType =
-      selectedType === 'all' || attack.type[i18n.language] === selectedType;
+      selectedType === 'all' || (attack?.type?.[i18n.language] || '') === selectedType;
 
     const matchesSeverity =
-      selectedSeverity === 'all' || attack.severity[i18n.language] === selectedSeverity;
+      selectedSeverity === 'all' || (attack?.severity?.[i18n.language] || '') === selectedSeverity;
 
     return matchesSearch && matchesType && matchesSeverity;
   });
@@ -92,7 +95,7 @@ const AttacksPage = () => {
       <p className="results-count">
         {t("attacks.results", {
           count: filteredAttacks.length,
-          total: cyberAttacksData.length
+          total: attacks.length
         })}
       </p>
 

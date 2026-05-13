@@ -6,17 +6,30 @@ import { usePosts } from '../../Context/PostsContext';
 const ManagePosts = () => {
   const { t } = useTranslation();
   const { user } = useAuth();
-  const { posts, addPost, deletePost } = usePosts();
+  const { posts, addPost, updatePost, deletePost } = usePosts();
   const [showModal, setShowModal] = useState(false);
+  const [editingId, setEditingId] = useState(null);
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
 
   const handleAdd = () => {
     if (!title.trim()) return;
-    addPost(title, body, user?.email);
+    if (editingId) {
+      updatePost(editingId, title, body);
+      setEditingId(null);
+    } else {
+      addPost(title, body, user?.email);
+    }
     setTitle('');
     setBody('');
     setShowModal(false);
+  };
+
+  const handleEdit = (item) => {
+    setEditingId(item.id);
+    setTitle(item.title || '');
+    setBody(item.body || '');
+    setShowModal(true);
   };
 
   return (
@@ -39,9 +52,14 @@ const ManagePosts = () => {
                 {new Date(item.createdAt).toLocaleString()}
               </p>
             </div>
-            <button type="button" onClick={() => deletePost(item.id)} style={deleteBtn}>
-              {t('admin_posts.delete')}
-            </button>
+            <div style={{ display: 'flex', gap: 8 }}>
+              <button type="button" onClick={() => handleEdit(item)} style={editBtn}>
+                Edit
+              </button>
+              <button type="button" onClick={() => deletePost(item.id)} style={deleteBtn}>
+                {t('admin_posts.delete')}
+              </button>
+            </div>
           </div>
         ))}
       </div>
@@ -54,7 +72,9 @@ const ManagePosts = () => {
             aria-labelledby="post-modal-title"
             onClick={(e) => e.stopPropagation()}
           >
-            <h3 id="post-modal-title">{t('admin_posts.modal_title')}</h3>
+            <h3 id="post-modal-title">
+              {editingId ? `Edit post` : t('admin_posts.modal_title')}
+            </h3>
             <input
               type="text"
               placeholder={t('admin_posts.title_placeholder')}
@@ -108,6 +128,15 @@ const card = {
 };
 const deleteBtn = {
   background: '#ef4444',
+  color: '#fff',
+  border: 'none',
+  padding: '8px 12px',
+  borderRadius: '8px',
+  cursor: 'pointer',
+  flexShrink: 0,
+};
+const editBtn = {
+  background: '#0ea5e9',
   color: '#fff',
   border: 'none',
   padding: '8px 12px',

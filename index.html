@@ -3,7 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cyber Security Platform</title>
+    <meta
+      name="description"
+      content="ThreatIQ is a bilingual cyber awareness hub with practical guides on attacks, prevention, and security habits."
+    />
+    <meta
+      name="keywords"
+      content="cybersecurity, phishing, malware, cyber awareness, security tools, online safety"
+    />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ThreatIQ | Cyber Awareness Hub" />
+    <meta
+      property="og:description"
+      content="Learn cyber defense with clear attack explainers, prevention guides, and practical security tools."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function () {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark =
+          window.matchMedia &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    <title>ThreatIQ | Cyber Awareness Hub</title>
   </head>
   <body>
     <div id="root"></div>

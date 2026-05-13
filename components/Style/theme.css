@@ -1,100 +1,100 @@
-/* يدعم الوضع الفاتح و الداكن */
-
 :root {
-  --bg-color: #f7f8fa;
-  --text-color: #0f172a;
-  --text-color-secondary: #475569;
-  --card-bg: #ffffff;
-  --accent-color: #2563eb;
-  --accent-color-2: #0ea5e9;
-  --border-color: #e5e7eb;
-  --shadow-color: rgba(0, 0, 0, 0.05);
-  --section-bg: #f1f5f9;
-  --warning-bg: #fef2f2;
-  --warning-color: #b91c1c;
+  color-scheme: light;
+  --font-body: 'Manrope', sans-serif;
+  --font-heading: 'Sora', sans-serif;
 
-  --header-bg: linear-gradient(90deg, #2563eb, #0ea5e9);
-  --footer-bg: #f1f5f9;
+  --bg-color: #edf3fb;
+  --surface-1: #ffffff;
+  --surface-2: rgba(255, 255, 255, 0.72);
+  --surface-3: #e5eefc;
+  --section-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(238, 245, 255, 0.98) 100%);
+
+  --text-color: #15243b;
+  --text-color-secondary: #53657d;
+  --heading-color: #0b1525;
+  --text-sub: #5f728b;
+
+  --accent-color: #1d63ed;
+  --accent-color-2: #08a7d9;
+  --accent-soft: rgba(29, 99, 237, 0.12);
+  --accent-strong: rgba(8, 167, 217, 0.2);
+
+  --border-color: rgba(16, 36, 62, 0.12);
+  --border-strong: rgba(16, 36, 62, 0.2);
+
+  --shadow-color: rgba(17, 36, 64, 0.1);
+  --shadow-lg: 0 28px 60px rgba(17, 36, 64, 0.18);
+
+  --warning-bg: rgba(239, 68, 68, 0.08);
+  --warning-color: #b91c1c;
 }
 
 [data-theme='dark'] {
-  --bg-color: #0b0f19;
-  --text-color: #e2e8f0;
-  --text-color-secondary: #94a3b8;
-  --card-bg: #1e293b;
-  --accent-color: #38bdf8;
-  --accent-color-2: #0ea5e9;
-  --border-color: #334155;
-  --shadow-color: rgba(0, 0, 0, 0.4);
-  --section-bg: #111827;
-  --warning-bg: rgba(239, 68, 68, 0.1);
-  --warning-color: #f87171;
-  --header-bg: rgba(15, 23, 42, 0.9);
-  --footer-bg: #0f172a;
+  color-scheme: dark;
+  --bg-color: #091120;
+  --surface-1: #111d31;
+  --surface-2: rgba(17, 29, 49, 0.75);
+  --surface-3: #13243d;
+  --section-bg: linear-gradient(180deg, rgba(14, 26, 45, 0.92) 0%, rgba(8, 18, 34, 0.98) 100%);
+
+  --text-color: #d5e2f3;
+  --text-color-secondary: #9bb0cb;
+  --heading-color: #eff6ff;
+  --text-sub: #aac0dd;
+
+  --accent-color: #64b9ff;
+  --accent-color-2: #4fd7ff;
+  --accent-soft: rgba(100, 185, 255, 0.16);
+  --accent-strong: rgba(79, 215, 255, 0.24);
+
+  --border-color: rgba(153, 177, 215, 0.24);
+  --border-strong: rgba(153, 177, 215, 0.34);
+
+  --shadow-color: rgba(3, 7, 18, 0.52);
+  --shadow-lg: 0 28px 60px rgba(3, 7, 18, 0.6);
+
+  --warning-bg: rgba(248, 113, 113, 0.12);
+  --warning-color: #fca5a5;
+}
+
+html[lang='ar'] {
+  --font-body: 'Cairo', sans-serif;
+  --font-heading: 'Cairo', sans-serif;
 }
 
 body {
-  background-color: var(--bg-color);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(29, 99, 237, 0.1) 0%, transparent 38%),
+    radial-gradient(circle at 100% 100%, rgba(8, 167, 217, 0.1) 0%, transparent 35%),
+    var(--bg-color);
   color: var(--text-color);
-  font-family: "Cairo", sans-serif;
   line-height: 1.7;
-  transition: background-color 0.4s ease, color 0.4s ease;
+  transition:
+    background-color 260ms ease,
+    color 260ms ease;
 }
 
-a {
-  color: var(--accent-color);
-  text-decoration: none;
-  transition: color 0.3s;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  color: var(--heading-color);
+  line-height: 1.2;
+  font-family: var(--font-heading);
 }
-a:hover {
-  color: var(--accent-color-2);
+
+p {
+  margin: 0;
 }
 
 .card {
-  background: var(--card-bg);
+  background: var(--surface-2);
   border: 1px solid var(--border-color);
   border-radius: 1rem;
-  padding: 1.5rem;
-  box-shadow: 0 2px 10px var(--shadow-color);
-  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
-}
-
-.btn-theme {
-  background: var(--accent-color);
-  color: #fff;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 9999px;
-  cursor: pointer;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: background 0.3s, transform 0.2s;
-}
-.btn-theme:hover {
-  background: var(--accent-color-2);
-  transform: translateY(-2px);
-}
-
-/*  Header & Footer  */
-.site-header {
-  background: var(--header-bg);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border-color);
-  transition: background 0.3s;
-  color: #ffffff;
-}
-
-.site-footer {
-  background: var(--footer-bg);
-  color: var(--text-color-secondary);
-  text-align: center;
-  padding: 2rem;
-  border-top: 1px solid var(--border-color);
-  font-size: 0.9rem;
-  transition: background 0.3s, color 0.3s;
-}
-.site-footer a {
-  color: var(--accent-color);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 25px var(--shadow-color);
+  transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
 }

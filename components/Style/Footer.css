@@ -1,48 +1,72 @@
-/* يدعم الوضع الفاتح و الداكن */
-
-
 .site-footer {
-  text-align: center;
-  padding: 3rem 1rem;
-  font-family: "Cairo", sans-serif;
-  transition: background 0.3s ease, color 0.3s ease;
   border-top: 1px solid var(--border-color);
+  background: var(--surface-2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  margin-top: 2rem;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.2rem 0;
+}
+
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.footer-mark {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+}
+
+.footer-brand strong {
+  display: block;
+  font-family: var(--font-heading);
+  color: var(--heading-color);
   font-size: 0.95rem;
 }
 
-/* الوضع الداكن */
-[data-theme='dark'] .site-footer {
-  background: #0f172a;
-  color: #94a3b8;
-}
-[data-theme='dark'] .site-footer a {
-  color: #38bdf8;
-}
-[data-theme='dark'] .site-footer a:hover {
-  color: #0ea5e9;
-}
-
-/* الوضع الفاتح */
-[data-theme='light'] .site-footer {
-  background: linear-gradient(180deg, #f8fbff 0%, #edf3ff 100%);
-  color: #475569;
-  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
-}
-[data-theme='light'] .site-footer a {
-  color: #2563eb;
-  font-weight: 600;
-}
-[data-theme='light'] .site-footer a:hover {
-  color: #0ea5e9;
-}
-
-.site-footer p {
-  margin: 0.5rem 0;
-}
-
-.site-footer small {
-  display: block;
-  margin-top: 0.5rem;
-  font-size: 0.85rem;
+.footer-brand p {
+  font-size: 0.82rem;
   color: var(--text-color-secondary);
+}
+
+.footer-meta {
+  text-align: end;
+}
+
+.footer-meta p {
+  font-size: 0.86rem;
+  color: var(--text-color-secondary);
+  margin-bottom: 0.2rem;
+}
+
+.footer-meta small {
+  font-size: 0.8rem;
+  color: var(--text-color-secondary);
+}
+
+.footer-meta a {
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem 0;
+  }
+
+  .footer-meta {
+    text-align: start;
+  }
 }

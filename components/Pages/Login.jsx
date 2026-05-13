@@ -6,9 +6,12 @@ import { useAuth } from '../Context/AuthContext';
 import { useTranslation } from "react-i18next";
 import {
     ADMIN_SESSION_EMAIL,
+    ADMIN_PERMISSIONS,
+    ADMIN_ROLE,
     isAdminLoginIdentifier,
     verifyAdminPassword,
 } from '../../config/admin';
+import { verifyMemberCredentials } from '../../services/userAccounts';
 
 const Login = () => {
     const { t } = useTranslation();
@@ -35,7 +38,12 @@ const Login = () => {
                 return;
             }
             setError('');
-            login({ email: ADMIN_SESSION_EMAIL, isAdmin: true });
+            login({
+                email: ADMIN_SESSION_EMAIL,
+                isAdmin: true,
+                role: ADMIN_ROLE,
+                permissions: [...ADMIN_PERMISSIONS],
+            });
             navigate('/');
             return;
         }
@@ -45,13 +53,14 @@ const Login = () => {
             return;
         }
 
-        if (password.length < 6) {
-            setError(t("login.errors.password_length"));
+        const result = verifyMemberCredentials({ email: id, password });
+        if (!result.ok) {
+            setError(t("login.errors.invalid_credentials"));
             return;
         }
 
         setError('');
-        login({ email: id, isAdmin: false });
+        login(result.user);
         navigate('/');
     };
 

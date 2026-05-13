@@ -1,0 +1,95 @@
+.incidents-page {
+  background: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+.incidents-header {
+  text-align: center;
+  padding: 8.5rem 1rem 2.5rem;
+  background: var(--section-bg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.incidents-header-icon {
+  width: 56px;
+  height: 56px;
+  color: #ef4444;
+  margin-bottom: 0.8rem;
+}
+
+.incidents-header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.incidents-header p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--text-color-secondary);
+}
+
+.incidents-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.2rem 1rem 3rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.incident-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 8px 20px var(--shadow-color);
+  backdrop-filter: blur(8px);
+}
+
+.incident-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.7rem;
+}
+
+.incident-year {
+  font-weight: 800;
+  color: var(--accent-color);
+}
+
+.incident-level {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+.incident-level-critical {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.incident-level-high {
+  background: #ffedd5;
+  color: #c2410c;
+}
+
+.incident-level-medium {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.incident-card h2 {
+  margin: 0 0 0.8rem;
+  font-size: 1.15rem;
+}
+
+.incident-block {
+  display: flex;
+  gap: 0.55rem;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+  color: var(--text-color-secondary);
+}

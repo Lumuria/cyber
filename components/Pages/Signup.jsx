@@ -5,6 +5,7 @@ import { Button } from '../Button';
 import { useAuth } from '../Context/AuthContext';
 import { useTranslation } from 'react-i18next';
 import { isAdminLoginIdentifier } from '../../config/admin';
+import { getUserByEmail, registerVerifiedUser } from '../../services/userAccounts';
 import {
   generateVerificationCode,
   savePendingSignup,
@@ -47,6 +48,10 @@ const Signup = () => {
     }
     if (isAdminLoginIdentifier(email)) {
       setError(t('signup.errors.reserved'));
+      return false;
+    }
+    if (getUserByEmail(email)) {
+      setError(t('signup.verify.already_exists'));
       return false;
     }
     if (!email.trim().includes('@')) {
@@ -110,7 +115,13 @@ const Signup = () => {
       setError(t('signup.verify.code_wrong'));
       return;
     }
-    login({ email: p.email, isAdmin: false });
+    const registered = registerVerifiedUser({ email: p.email, password: p.password });
+    if (!registered.ok) {
+      setError(t('signup.verify.already_exists'));
+      return;
+    }
+
+    login({ email: p.email, isAdmin: false, role: 'member', permissions: [] });
     clearPendingSignup();
     navigate('/');
   };

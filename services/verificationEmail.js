@@ -1,11 +1,10 @@
 /**
  * Signup email verification (client-side).
  *
- * Real emails require a backend: set VITE_VERIFICATION_API_URL to a POST endpoint
- * that accepts JSON { to, code, purpose } and sends the message (e.g. Resend, SendGrid).
+ * Real emails require a backend endpoint:
+ * VITE_VERIFICATION_API_URL -> POST JSON { to, code, purpose }.
  *
- * Local/demo: code is shown in the UI when Vite is in dev mode, or when
- * VITE_SHOW_VERIFICATION_CODE=true in .env (never enable the latter in public production).
+ * Local/dev mode: the code can be revealed in UI (or console) for testing.
  */
 
 const PENDING_KEY = 'threatiq_pending_signup';
@@ -61,6 +60,7 @@ export async function sendVerificationEmail(email, code) {
         purpose: 'signup',
       }),
     });
+
     if (!res.ok) {
       const text = await res.text().catch(() => '');
       throw new Error(text || `HTTP ${res.status}`);
@@ -69,8 +69,9 @@ export async function sendVerificationEmail(email, code) {
   }
 
   if (import.meta.env.DEV) {
-    console.info(`[Verification] Demo — code for ${email}: ${code}`);
+    console.info(`[Verification] Demo code for ${email}: ${code}`);
+    return { apiUsed: false };
   }
 
-  return { apiUsed: false };
+  throw new Error('Missing VITE_VERIFICATION_API_URL for production email delivery.');
 }

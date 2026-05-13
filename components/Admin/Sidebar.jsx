@@ -15,6 +15,8 @@ const Sidebar = () => {
             <Link to="/admin" style={linkStyle}>Dashboard</Link>
             <Link to="/admin/news" style={linkStyle}>Manage News</Link>
             <Link to="/admin/posts" style={linkStyle}>Manage Posts</Link>
+            <Link to="/admin/users" style={linkStyle}>Manage Users</Link>
+            <Link to="/admin/content" style={linkStyle}>Manage Sections</Link>
 
         </div>
     );

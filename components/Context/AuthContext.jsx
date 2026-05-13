@@ -1,4 +1,6 @@
 import React, { createContext, useState, useContext } from 'react';
+import { getAdminPasswordForSeed } from '../../config/admin';
+import { ensureAdminSeed } from '../../services/userAccounts';
 
 // إنشاء  (Context)
 const AuthContext = createContext();
@@ -12,6 +14,8 @@ export const AuthProvider = ({ children }) => {
         const normalized = {
             email: userData.email,
             isAdmin: Boolean(userData.isAdmin),
+            role: userData.role || (userData.isAdmin ? 'admin' : 'member'),
+            permissions: Array.isArray(userData.permissions) ? userData.permissions : [],
         };
         setUser(normalized);
         localStorage.setItem('user', JSON.stringify(normalized));
@@ -31,8 +35,14 @@ export const AuthProvider = ({ children }) => {
             setUser({
                 email: parsed.email,
                 isAdmin: Boolean(parsed.isAdmin),
+                role: parsed.role || (parsed.isAdmin ? 'admin' : 'member'),
+                permissions: Array.isArray(parsed.permissions) ? parsed.permissions : [],
             });
         }
+    }, []);
+
+    React.useEffect(() => {
+        ensureAdminSeed(getAdminPasswordForSeed());
     }, []);
 
     return (

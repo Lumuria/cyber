@@ -2,10 +2,31 @@ import React, { createContext, useCallback, useContext, useMemo, useState } from
 
 const STORAGE_KEY = 'threatiq_community_posts';
 
+const INITIAL_POSTS = [
+  {
+    id: 'seed-post-1',
+    title: '5 signs your account is under attack',
+    body:
+      'If you notice unknown login alerts, sudden password resets, or suspicious messages sent from your account, act immediately: change password, enable MFA, and review active sessions.',
+    createdAt: Date.now() - 1000 * 60 * 60 * 36,
+    authorEmail: 'admin@threatiq.com',
+  },
+  {
+    id: 'seed-post-2',
+    title: 'Weekly team tip: browser hygiene',
+    body:
+      'Update your browser weekly, remove unknown extensions, and avoid downloading files from untrusted links. Browser security is your first line of defense.',
+    createdAt: Date.now() - 1000 * 60 * 60 * 18,
+    authorEmail: 'admin@threatiq.com',
+  },
+];
+
 function loadState() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return { posts: [], comments: [], likes: {} };
+    if (!raw) {
+      return { posts: INITIAL_POSTS, comments: [], likes: {} };
+    }
     const data = JSON.parse(raw);
     return {
       posts: Array.isArray(data.posts) ? data.posts : [],
@@ -66,6 +87,27 @@ export function PostsProvider({ children }) {
           likes: nextLikes,
         };
       });
+    },
+    [commit]
+  );
+
+  const updatePost = useCallback(
+    (postId, title, body) => {
+      const trimmedTitle = title.trim();
+      const trimmedBody = body.trim();
+      if (!trimmedTitle) return;
+      commit((s) => ({
+        ...s,
+        posts: s.posts.map((p) =>
+          p.id === postId
+            ? {
+                ...p,
+                title: trimmedTitle,
+                body: trimmedBody,
+              }
+            : p
+        ),
+      }));
     },
     [commit]
   );
@@ -134,6 +176,7 @@ export function PostsProvider({ children }) {
       posts,
       addPost,
       deletePost,
+      updatePost,
       toggleLike,
       addComment,
       getCommentsForPost,
@@ -144,6 +187,7 @@ export function PostsProvider({ children }) {
       posts,
       addPost,
       deletePost,
+      updatePost,
       toggleLike,
       addComment,
       getCommentsForPost,

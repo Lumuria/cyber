@@ -201,7 +201,8 @@
             "code_wrong": "That code is not correct. Try again or resend.",
             "expired": "This code has expired. Go back and request a new one.",
             "session_expired": "Verification session expired. Please start again.",
-            "send_failed": "Could not send the verification email. Check your connection or server configuration."
+            "send_failed": "Could not send the verification email. Check your connection or server configuration.",
+            "already_exists": "This email is already registered. Please log in."
         },
         "errors": {
             "required": "Please fill all fields",

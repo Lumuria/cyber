@@ -3,9 +3,11 @@ import { Lock, Eye, EyeOff, Shield, AlertTriangle, CheckCircle, Zap } from 'luci
 import { Button } from '../Button';
 import '../Style/Tools.css';
 import { useTranslation } from "react-i18next";
+import { useContent } from '../Context/ContentContext';
 
 const ToolsPage = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const { tools } = useContent();
 
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -189,6 +191,19 @@ const ToolsPage = () => {
         </div>
 
       </div>
+
+      <section className="tips">
+        <h2>{i18n.language === 'ar' ? 'تحديثات قسم الأدوات' : 'Tools Section Updates'}</h2>
+        <div className="tips-grid">
+          {tools.map((item) => (
+            <div key={item.id} className="tip">
+              <div className="tip-icon"><Shield /></div>
+              <h3>{item.title?.[i18n.language] || '-'}</h3>
+              <p>{item.description?.[i18n.language] || '-'}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
     </div>
   );

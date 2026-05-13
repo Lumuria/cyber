@@ -3,6 +3,8 @@
  * Change the password before any real deployment.
  */
 export const ADMIN_SESSION_EMAIL = 'admin@threatiq.com';
+export const ADMIN_ROLE = 'admin';
+export const ADMIN_PERMISSIONS = ['*'];
 
 const ADMIN_PASSWORD = 'ThreatIQ#2026';
 
@@ -23,5 +25,15 @@ export function verifyAdminPassword(password) {
 
 /** Admin access is granted only after login sets isAdmin: true (correct password). */
 export function isAdminUser(user) {
-  return Boolean(user?.isAdmin);
+  return Boolean(user?.isAdmin) || user?.role === ADMIN_ROLE;
+}
+
+export function getAdminPasswordForSeed() {
+  return ADMIN_PASSWORD;
+}
+
+export function hasPermission(user, permission) {
+  if (!isAdminUser(user)) return false;
+  const perms = Array.isArray(user?.permissions) ? user.permissions : [];
+  return perms.includes('*') || perms.includes(permission);
 }
