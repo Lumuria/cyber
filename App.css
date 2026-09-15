@@ -1,0 +1,39 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  isolation: isolate;
+}
+
+.App::before,
+.App::after {
+  content: '';
+  position: fixed;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.App::before {
+  inset: -5rem auto auto -8rem;
+  width: 28rem;
+  height: 28rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(29, 99, 237, 0.2) 0%, transparent 70%);
+  filter: blur(8px);
+}
+
+.App::after {
+  inset: auto -7rem -6rem auto;
+  width: 26rem;
+  height: 26rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(8, 167, 217, 0.22) 0%, transparent 72%);
+  filter: blur(8px);
+}
+
+.App main {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}

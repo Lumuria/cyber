@@ -1,0 +1,133 @@
+.site-footer {
+  border-top: 1px solid var(--border-color);
+  background: var(--surface-2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  margin-top: 2rem;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.2rem 0;
+}
+
+/* =========================
+   BRAND
+========================= */
+
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.footer-mark {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+}
+
+.footer-brand strong {
+  display: block;
+  font-family: var(--font-heading);
+  color: var(--heading-color);
+  font-size: 0.95rem;
+}
+
+.footer-brand p {
+  font-size: 0.82rem;
+  color: var(--text-color-secondary);
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-contact-title {
+  margin: 0 0 10px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--heading-color);
+}
+
+.contact-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.contact-icons a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  color: var(--text-color-secondary);
+  background: var(--surface);
+  text-decoration: none;
+  font-size: 19px;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.contact-icons a:hover {
+  transform: translateY(-3px);
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+/* =========================
+   COPYRIGHT
+========================= */
+
+.footer-meta {
+  text-align: end;
+}
+
+.footer-meta p {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--text-color-secondary);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .footer-brand {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footer-contact {
+    width: 100%;
+  }
+
+  .footer-meta {
+    text-align: center;
+  }
+}

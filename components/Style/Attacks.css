@@ -1,0 +1,503 @@
+/* ========================================
+   Attacks Page
+   يدعم الوضع الفاتح والداكن
+======================================== */
+
+.attacks-page {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Cairo", sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+  padding-bottom: 4rem;
+}
+
+
+/* ========================================
+   Header
+======================================== */
+
+.attacks-header {
+  text-align: center;
+  padding: 10rem 1rem 3rem;
+  background: var(--section-bg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.attacks-header > svg {
+  display: block;
+  position: static;
+  width: 60px;
+  height: 60px;
+  color: var(--accent-color);
+  margin: 0 auto 1rem;
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.4));
+}
+
+.attacks-header h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.attacks-header p {
+  color: var(--text-color-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   Filter Box
+======================================== */
+
+.filter-box {
+  background: var(--section-bg);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.5rem 1rem;
+  transition: background 0.3s ease;
+}
+
+.filter-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+
+/* ========================================
+   Search Input
+======================================== */
+
+.input-group {
+  position: relative;
+}
+
+.input-group input {
+  width: 260px;
+  min-height: 44px;
+  background: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.7rem 2.5rem 0.7rem 1rem;
+  font-family: "Cairo", sans-serif;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.input-group input:focus {
+  border-color: var(--accent-color);
+  outline: none;
+}
+
+.input-icon {
+  position: absolute;
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent-color);
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+}
+
+
+/* ========================================
+   Filter Select
+======================================== */
+
+.filter-select {
+  min-width: 190px;
+  min-height: 44px;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.7rem 2.5rem 0.7rem 1rem;
+  font-family: "Cairo", sans-serif;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.filter-select:hover {
+  border-color: var(--accent-color);
+}
+
+.filter-select:focus {
+  border-color: var(--accent-color);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.12);
+}
+
+.filter-select option {
+  background-color: #ffffff;
+  color: #1f2937;
+  font-family: "Cairo", sans-serif;
+  font-size: 0.95rem;
+}
+
+
+/* Dark Mode Select */
+
+[data-theme="dark"] .filter-select {
+  background-color: #1f2937;
+  color: #f8fafc;
+  border-color: #374151;
+  color-scheme: dark;
+}
+
+[data-theme="dark"] .filter-select option {
+  background-color: #1f2937;
+  color: #f8fafc;
+}
+
+
+/* Light Mode Select */
+
+[data-theme="light"] .filter-select {
+  background-color: #ffffff;
+  color: #1f2937;
+  border-color: #cbd5e1;
+  color-scheme: light;
+}
+
+[data-theme="light"] .filter-select option {
+  background-color: #ffffff;
+  color: #1f2937;
+}
+
+
+/* ========================================
+   Reset Button
+======================================== */
+
+.reset-btn {
+  min-height: 44px;
+  background: transparent;
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-family: "Cairo", sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.reset-btn:hover {
+  background: var(--accent-color);
+  color: #fff;
+}
+
+
+/* ========================================
+   Results Count
+======================================== */
+
+.results-count {
+  text-align: center;
+  color: var(--text-color-secondary);
+  margin: 2rem 0;
+  font-size: 0.95rem;
+}
+
+
+/* ========================================
+   Attacks List
+======================================== */
+
+.attacks-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.8rem;
+  padding: 0 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+/* ========================================
+   Attack Card
+======================================== */
+
+.attack-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  transition: all 0.3s ease;
+}
+
+.attack-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.25);
+}
+
+
+/* ========================================
+   Card Header
+======================================== */
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.card-header h3 {
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.eng-name {
+  color: var(--text-color-secondary);
+  font-size: 0.85rem;
+}
+
+
+/* ========================================
+   Card Meta
+======================================== */
+
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-color-secondary);
+  align-items: center;
+}
+
+.card-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+}
+
+
+/* ========================================
+   Severity
+======================================== */
+
+.sev-tag {
+  font-weight: 700;
+}
+
+.sev-yellow {
+  color: #eab308;
+}
+
+.sev-orange {
+  color: #fb923c;
+}
+
+.sev-red {
+  color: #ef4444;
+}
+
+.sev-gray {
+  color: #9ca3af;
+}
+
+
+/* ========================================
+   Toggle Button
+======================================== */
+
+.toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: linear-gradient(
+    90deg,
+    var(--accent-color),
+    var(--accent-color-2)
+  );
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.25);
+}
+
+.toggle-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(56, 189, 248, 0.4);
+}
+
+.toggle-btn.active {
+  background: var(--accent-color-2);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
+}
+
+
+/* ========================================
+   Description
+======================================== */
+
+.desc {
+  color: var(--text-color-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+
+/* ========================================
+   Meta Grid
+======================================== */
+
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.meta-grid > div {
+  color: var(--text-color-secondary);
+  line-height: 1.6;
+}
+
+.meta-grid strong {
+  color: var(--text-color);
+}
+
+
+/* ========================================
+   Card Details
+======================================== */
+
+.card-details {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.detail-box {
+  background: var(--section-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0.8rem;
+  padding: 1rem;
+}
+
+.detail-title {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.detail-title svg {
+  width: 20px;
+  height: 20px;
+}
+
+.detail-box p {
+  color: var(--text-color-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+/* ========================================
+   No Results
+======================================== */
+
+.no-results {
+  text-align: center;
+  margin: 5rem 0;
+  padding: 0 1rem;
+}
+
+.no-icon {
+  color: var(--accent-color);
+  width: 50px;
+  height: 50px;
+  margin-bottom: 1rem;
+}
+
+.no-results h3 {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.no-results p {
+  color: var(--text-color-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+
+/* ========================================
+   Mobile
+======================================== */
+
+@media (max-width: 768px) {
+  .attacks-header {
+    padding: 8rem 1rem 2.5rem;
+  }
+
+  .attacks-header h1 {
+    font-size: 2rem;
+  }
+
+  .filter-grid {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .input-group,
+  .input-group input,
+  .filter-select,
+  .reset-btn {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .filter-select {
+    min-width: 0;
+  }
+
+  .attacks-list {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .card-header {
+    align-items: flex-start;
+  }
+
+  .card-details {
+    grid-template-columns: 1fr;
+  }
+}
