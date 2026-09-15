@@ -18,6 +18,7 @@ const Signup = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [code, setCode] = useState('');
+    const [demoCode, setDemoCode] = useState('');
     const [step, setStep] = useState('form');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
@@ -87,7 +88,8 @@ const Signup = () => {
             }
 
             setStep('verify');
-            setCode('');
+            setCode(data?.verification_code || '');
+            setDemoCode(data?.verification_code || '');
         } catch (error) {
             console.error('Signup error:', error);
             setError('Unable to connect to the server.');
@@ -253,6 +255,13 @@ const Signup = () => {
                             <br />
                             <strong>{email}</strong>
                         </p>
+
+                        {demoCode && (
+                            <p className="signup-subtitle" style={{ marginTop: '0.75rem' }}>
+                                Demo code (if email is delayed):{' '}
+                                <strong>{demoCode}</strong>
+                            </p>
+                        )}
 
                         <form onSubmit={handleVerify}>
                             <input

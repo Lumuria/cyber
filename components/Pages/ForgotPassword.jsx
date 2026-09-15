@@ -25,6 +25,7 @@ export default function ForgotPassword() {
 
     const [email, setEmail] = useState('');
     const [code, setCode] = useState('');
+    const [demoCode, setDemoCode] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirmation, setPasswordConfirmation] =
         useState('');
@@ -160,6 +161,13 @@ export default function ForgotPassword() {
             setMessage(
                 'forgotPassword.messages.reset_code_sent'
             );
+
+            if (data?.verification_code) {
+                setDemoCode(data.verification_code);
+                setCode(data.verification_code);
+            } else {
+                setDemoCode('');
+            }
 
             setStep(2);
         } catch (err) {
@@ -509,6 +517,15 @@ export default function ForgotPassword() {
                                 'forgotPassword.step2.subtitle'
                             )}
                         </p>
+
+                        {demoCode && (
+                            <p className="forgot-password-subtitle">
+                                {isArabic
+                                    ? 'رمز العرض (إذا تأخر الإيميل): '
+                                    : 'Demo code (if email is delayed): '}
+                                <strong>{demoCode}</strong>
+                            </p>
+                        )}
 
                         {error && (
                             <div
