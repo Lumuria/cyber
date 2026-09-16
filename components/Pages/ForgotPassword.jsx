@@ -162,13 +162,8 @@ export default function ForgotPassword() {
                 'forgotPassword.messages.reset_code_sent'
             );
 
-            if (data?.verification_code) {
-                setDemoCode(data.verification_code);
-                setCode(data.verification_code);
-            } else {
-                setDemoCode('');
-            }
-
+            setDemoCode('');
+            setCode('');
             setStep(2);
         } catch (err) {
             setError(
@@ -517,15 +512,6 @@ export default function ForgotPassword() {
                                 'forgotPassword.step2.subtitle'
                             )}
                         </p>
-
-                        {demoCode && (
-                            <p className="forgot-password-subtitle">
-                                {isArabic
-                                    ? 'رمز العرض (إذا تأخر الإيميل): '
-                                    : 'Demo code (if email is delayed): '}
-                                <strong>{demoCode}</strong>
-                            </p>
-                        )}
 
                         {error && (
                             <div

@@ -88,8 +88,8 @@ const Signup = () => {
             }
 
             setStep('verify');
-            setCode(data?.verification_code || '');
-            setDemoCode(data?.verification_code || '');
+            setCode('');
+            setDemoCode('');
         } catch (error) {
             console.error('Signup error:', error);
             setError('Unable to connect to the server.');
@@ -255,13 +255,6 @@ const Signup = () => {
                             <br />
                             <strong>{email}</strong>
                         </p>
-
-                        {demoCode && (
-                            <p className="signup-subtitle" style={{ marginTop: '0.75rem' }}>
-                                Demo code (if email is delayed):{' '}
-                                <strong>{demoCode}</strong>
-                            </p>
-                        )}
 
                         <form onSubmit={handleVerify}>
                             <input
